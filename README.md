@@ -86,7 +86,7 @@ log.dirs=/tmp/kafka-logs-3
 
 #### 2. Start Producer and Consumer Spring boot application
 
-Use maven command 
+Pull the **main** branch and build producer and consumer modules seperately using following maven command
 
 ```groovy
 mvn clean install spring-boot:run
