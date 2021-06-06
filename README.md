@@ -108,14 +108,19 @@ curl --location --request POST 'http://localhost:8080/notification-system/v1/new
 
 ### Assumptions considered
 
-#### Assumption 1 
+#### Assumption 1
+For sending email notification, **sendGrid** API is used.\
+For security reasons the api key is removed from the code base so email will not be received in real time, but **logs** can be helpful to debug the flow.
+
+#### Assumption 2 
 The Client needs to be registered with the service in order to get the notification.\
 In this case only 2 client ID's have been registered with the service i.e. **456** and **290**.\
 So the clientId field in the request must contain either of the 2, otherwise it'll throw 500 exception
 
-#### Assumption 2
+#### Assumption 3
 The consumer currently implements only email handler so only email notifications are sent.
 But it can be easily scaled to implement other channels also (eg slack etc...)
+
 
 ### Screenshots of the results
 
