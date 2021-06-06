@@ -24,7 +24,11 @@ public class NotificationProducerApplication {
 					.clientId(456)
 					.topicName("client-1-events")
 					.build();
-			List<RegisteredClient> clients = Arrays.asList(client1);
+			RegisteredClient client2 = RegisteredClient.builder()
+					.clientId(290)
+					.topicName("client-2-events")
+					.build();
+			List<RegisteredClient> clients = Arrays.asList(client1, client2);
 			clients.forEach(client -> clientRepository.save(client));
 		};
 	}
