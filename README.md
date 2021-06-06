@@ -127,17 +127,23 @@ But it can be easily scaled to implement other channels also (eg slack etc...)
 
 ### Screenshots of the results
 
-#### 1. Successfully notification request
+#### 1. Successfully sent notification request
 
 <img width="1590" alt="Screen Shot 2021-06-06 at 12 08 37 PM" src="https://user-images.githubusercontent.com/28482024/120920434-5ff61680-c6dc-11eb-953b-659338ca05b2.png">
 
-#### 2. Successfully notification request
+#### 2. Successful sent email notification
 
 Email notification received
 
 <img width="1357" alt="Screen Shot 2021-06-06 at 12 05 47 PM" src="https://user-images.githubusercontent.com/28482024/120920456-81ef9900-c6dc-11eb-9d81-977f362e4ed4.png">
 
-#### 3. Logs 
+
+#### 3. Error response when client id in request is invalid
+
+<img width="1597" alt="Screen Shot 2021-06-06 at 12 08 53 PM" src="https://user-images.githubusercontent.com/28482024/120921125-cdf00d00-c6df-11eb-8732-8cbf65315c60.png">
+
+
+#### 4. Logs 
 
 1. Producer
 
