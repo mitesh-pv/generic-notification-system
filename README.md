@@ -2,6 +2,9 @@
 
 This repository contains a project to demonstrate centralized generic notification service that can be used by variety consuming applications to get notifications across multiple platforms (eg. email, slack etc... )
 
+The project is developed using **java-11**, **spring boot 2.5** and **Apache Maven** build tool.\
+It Uses **Kafka** as a message broker.
+
 
 ### High Level Design
 
