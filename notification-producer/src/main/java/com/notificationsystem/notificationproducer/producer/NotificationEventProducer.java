@@ -29,8 +29,9 @@ public class NotificationEventProducer {
     public void sendNotificationEvent(NotificationEvent notificationEvent, String topic) throws JsonProcessingException {
         Integer key = notificationEvent.getNotificationEventId();
         String val = objectMapper.writeValueAsString(notificationEvent);
+        String source = notificationEvent.getMessage().getFrom();
 
-        ProducerRecord<Integer, String> producerRecord = buildProducerRecord(key, val, topic);
+        ProducerRecord<Integer, String> producerRecord = buildProducerRecord(key, val, source, topic);
         ListenableFuture<SendResult<Integer, String>> listenableFuture = kafkaTemplate.send(producerRecord);
         listenableFuture.addCallback(new ListenableFutureCallback<SendResult<Integer, String>>() {
             @Override
@@ -45,8 +46,8 @@ public class NotificationEventProducer {
         });
     }
 
-    private ProducerRecord<Integer, String> buildProducerRecord(Integer key, String val, String topic) {
-        List<Header> recordHeaders = List.of(new RecordHeader("event-source", "scanner".getBytes()));
+    private ProducerRecord<Integer, String> buildProducerRecord(Integer key, String val, String source, String topic) {
+        List<Header> recordHeaders = List.of(new RecordHeader("event-source", source.getBytes()));
         return new ProducerRecord<>(topic, null, key, val, recordHeaders);
     }
 
@@ -60,7 +61,7 @@ public class NotificationEventProducer {
     }
 
     private void handleSuccess(Integer key, String val, SendResult<Integer, String> integerStringSendResult) {
-        log.info("Message sent successfully for key : {} and value : {}, partition is : {} ",
+        log.info("Message sent successfully, key : {}, value : {}, partition : {} ",
                 key, val, integerStringSendResult.getRecordMetadata().partition());
     }
 }
