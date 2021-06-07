@@ -52,7 +52,6 @@ public class NotificationEventProducer {
     }
 
     private void handleFailure(Integer key, String val, Throwable throwable) {
-        log.error("Error sending message, exception : {}", throwable.getMessage());
         try{
             throw throwable;
         }catch (Throwable throwable1) {

@@ -9,9 +9,11 @@ public class NotificationEventException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
     private Integer status;
+    private Integer clientId;
 
-    public NotificationEventException(final Integer status){
+    public NotificationEventException(final Integer status, final Integer clientId){
         this.status = status;
+        this.clientId = clientId;
     }
 
     public Integer getStatus() {
@@ -20,5 +22,13 @@ public class NotificationEventException extends RuntimeException {
 
     public void setStatus(final Integer status) {
         this.status = status;
+    }
+
+    public Integer getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Integer clientId) {
+        this.clientId = clientId;
     }
 }

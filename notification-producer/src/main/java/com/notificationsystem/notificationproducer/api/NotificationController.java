@@ -34,7 +34,7 @@ public class NotificationController {
         RegisteredClient client = clientRepository.findByClientId(notificationEvent.getClientId());
 
         if(client == null) {
-            throw new NotificationEventException(500);
+            throw new NotificationEventException(500, notificationEvent.getClientId());
         }
 
         String topic = client.getTopicName();
